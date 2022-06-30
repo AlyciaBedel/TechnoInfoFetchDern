@@ -31,8 +31,9 @@ const closeBtnDelete = document.querySelector('.closeDelete');
 /* --------------- LIRE LES PRODUITS AVEC VALEURS --------------- */
 const renderProducts = (products) => {
     products.forEach(product => {
+
         let reservable = ''
-        if (product.canBeLoaned == true) {
+        if (product.canBeLoaned === true) {
             reservable = '<button class="btn-reservable">Réserver</button>'
         } else {
             reservable = '<button class="btn-noreservable">Détails du produit</button>'
@@ -52,7 +53,7 @@ const renderProducts = (products) => {
         </div>
 
         <div class="buttonMaterialContent">
-            ${product.canBeLoaned}
+            ${reservable}
         </div>
 
         <div class="btnDeleteEdit">
@@ -73,8 +74,6 @@ const url = 'http://localhost:3000/equipments';
 fetch(url)
     .then(res => res.json())
     .then(data => renderProducts(data))
-
-
 
 /* --------------- SUPPRIMER/EDITER --------------- */
 productsList.addEventListener('click', (e) => {
@@ -137,7 +136,7 @@ productsList.addEventListener('click', (e) => {
                 category: categoryValue.value,
                 productName: nameValue.value,
                 description: caracteristicValue.value,
-                canBeLoaned: bookingValue.value
+                canBeLoaned: bookingValue.value.toLowerCase() == 'true' ? true : false
             })
         })
             .then(res => res.json())

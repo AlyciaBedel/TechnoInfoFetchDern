@@ -1,11 +1,22 @@
 {
   "name": "projet-2---fetch",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Projet 2 - Javascript Fetch",
+  "main": "./js/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "json:server": "json-server --watch ./data/db.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlyciaBedel/TechnoInfoFetchDern.git"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlyciaBedel/TechnoInfoFetchDern/issues"
+  },
+  "homepage": "https://github.com/AlyciaBedel/TechnoInfoFetchDern#readme",
+  "dependencies": {
+    "json-server": "^0.17.0"
+  }
 }
