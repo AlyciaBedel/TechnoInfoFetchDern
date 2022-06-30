@@ -1,0 +1,14 @@
+PREMIERE CONNEXION
+Avant d'ouvrir le fichier accueil.html soit via le navigateur ou live serveur merci de :
+- Ouvrir le terminal de votre éditeur de code (pour VSCODE : menu du haut => terminal => Nouveau terminal).
+- Une fois le terminal ouvert noter l'élément suivant :
+
+json-server --watch db.json
+
+
+CONNEXION SUIVANTE
+Si vous quittez la page accueil.html sur le navigateur ou vous fermez votre éditeur de code, et que par la suite vous souhaitez de nouveau ouvrir accueil.html merci de :
+- Ouvrir le terminal de votre éditeur de code (pour VSCODE : menu du haut => terminal => Nouveau terminal).
+- Une fois le terminal ouvert noter l'élément suivant :
+
+json-server --watch db.json

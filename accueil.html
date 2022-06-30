@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <!------ Balises méta ------->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Accueil de réservation de la société Techno'Info avec la possibilité de réservé un matériel selon la catégorie" />
+    <meta name="author" content="Alycia Bedel">
+    <meta name="copyright" content="Techno'Info">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="rating" content="restricted">
+
+    <!------ Titre de la page ------->
+    <title>Accueil Techno'Info</title>
+
+    <!------ Lien CSS ------->
+    <link rel="stylesheet" href="css/home.css">
+
+</head>
+
+<body>
+
+    <!-------- Début header --------->
+    <header>
+
+        <!----- Début Logo et icon ----->
+        <div id="containerFirstMenu">
+
+            <!-- Logo -->
+            <div id="containerLogo">
+                <a href="accueil.html"><img src="images/logoColor.svg"
+                        alt="Logo en dégradé de bleu, de l'entreprise Techno'Info avec un globe entouré de rond, dans le globe les lettres TI"></a>
+            </div>
+
+            <!-- Icon -->
+            <div id="navHeader">
+                <nav>
+                    <ul id="listNav">
+                        <button id="modal-btn" class="button"> Ajouter un équipement</button>
+                        <li class="itemNav"><a href="#"><img src="images/icon/searchIcon.svg" alt=""></a></li>
+                        <li class="itemNav"><a href="#"><img src="images/icon/userIcon.svg" alt=""></a></li>
+                        <li id="toggle"><button type="button"><img src="images/icon/MenuIcon.svg"
+                                    alt="icône menu hamburger"></button></li>
+                    </ul>
+                </nav>
+            </div>
+
+        </div>
+        <!----- Fin Logo et icon ----->
+
+        <!----- Menu navigation ----->
+        <!-- Menu avec lien -->
+        <div id="containerSecondMenu">
+
+            <!-- Menu avec lien -->
+            <nav id="menu">
+
+                <!-- Menu pour Javascript -->
+                <div id="buttonCategories">
+                    <button class="button-value active" onclick="filterProduct('all')">Accueil</button>
+                    <button class="button-value" onclick="filterProduct('Réseau')">Matériel réseau</button>
+                    <button class="button-value" onclick="filterProduct('Téléphonique')">Matériel téléphonique</button>
+                    <button class="button-value" onclick="filterProduct('Desktop')">Matériel desktop</button>
+                    <button class="button-value" onclick="filterProduct('Réunion')">Matériel de réunion</button>
+                </div>
+
+                <!-- Icone menu burger -->
+                <div id="containerIconToggle">
+                    <ul>
+                        <li class="iconForToggle"><a href="#"><img src="images/icon/searchIconWhite.svg" alt=""></a>
+                        </li>
+                        <li class="iconForToggle"><a href="#"><img src="images/icon/userIconWhite.svg" alt=""></a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+        </div>
+        <!----- Fin menu navigation ----->
+
+    </header>
+    <!-------- Fin header --------->
+
+    <!-------- Début section --------->
+    <section id="containerBannerSearch">
+
+        <!----- Texte bannière ----->
+        <div id="containerBanner">
+
+            <div id="containerBannerText">
+                <h1>Faites une recherche de réservation</h1>
+                <p>Merci d’utiliser notre moteur de recherche pour vous simplifier la réservation de votre matériel</p>
+            </div>
+
+        </div>
+
+        <!----- Barre de recherche ----->
+        <div id="containerSearch">
+            <form action="" method="post" id="formSearch" autocomplete="off">
+
+                <!-- Container des champs -->
+                <div id="sectionChamp">
+
+                    <!-- Champs selection des catégories -->
+                    <div id="listCategories">
+                        <label for="categories">Choisir votre catégorie</label>
+                        <select name="categories" id="categories">
+                            <option value="categories">Catégories</option>
+                            <option value="categories">Matériel réseau</option>
+                            <option value="categories">Matériel téléphonique</option>
+                            <option value="categories">Matériel desktop</option>
+                            <option value="categories">Matériel de réunion</option>
+                        </select>
+                    </div>
+
+                    <!-- Champs de recherche avec suggestion -->
+                    <div id="datalistMaterial">
+                        <label for="material">Recherchez votre matériel</label>
+                        <input type="text" name="material" id="material" list="materialHint"
+                            placeholder="Matériel recherché">
+                        <datalist id="materialHint">
+                            <option value="macbook pro"></option>
+                            <option value="gigaset c-530"></option>
+                            <option value="d-link switch"></option>
+                            <option value="projecteur epson"></option>
+                            <option value="disque dur 1 to"></option>
+                            <option value="imprimante canon"></option>
+                            <option value="modems"></option>
+                            <option value="convertisseur fibre"></option>
+                            <option value="casque pro jabra"></option>
+                    </div>
+
+                    <!-- Date de début -->
+                    <div id="dateStart">
+                        <label for="start">Date de début</label>
+                        <input type="date" id="start" name="start" value="" placeholder="Date de début">
+                    </div>
+
+                    <!-- Date de fin -->
+                    <div id="dateEnd">
+                        <label for="end">Date de fin</label>
+                        <input type="date" id="end" name="end" value="" placeholder="Date de fin">
+                    </div>
+
+                </div>
+
+                <!-- Bouton -->
+                <div id="containerButton">
+                    <button type="submit">Rechercher</button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </section>
+    <!-------- Fin section --------->
+
+    <!-------- Début main --------->
+    <main>
+
+        <!----- Filtre matériel ----->
+        <div id="filter">
+            <form action="" method="post" id="formFilter" autocomplete="off">
+
+                <div id="filterReservation">
+                    <label for="filter"></label>
+                    <select name="filter" id="filter">
+                        <option value="categories">Pertinence</option>
+                        <option value="categories">Les plus recherchés</option>
+                        <option value="categories">Disponible</option>
+                    </select>
+                </div>
+
+            </form>
+        </div>
+
+        <!-------- Modal ajouter équipement --------->
+        <div id="my-modal" class="modal">
+
+            <!-- Contenu du modal -->
+            <div class="modal-content">
+
+                <!-- Header modal -->
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2 id="titre">Ajouter un équipement</h2>
+                </div>
+                <!-- Fin header modal -->
+
+                <!-- Body modal -->
+                <div class="modal-body">
+
+                    <!-- Début formulaire -->
+                    <form id="formulaire">
+                        <div class="form-item">
+                            <label for="imgProduct">Choissisez votre image (.jpg ou .png)</label>
+                            <input type="file" id="imgProduct" class="input" accept=".jpg, .png"
+                                placeholder="Choissisez votre image" required>
+                        </div>
+                        <div class="form-item">
+                            <label for="productName">Nom du matériel</label>
+                            <input type="text" id="productName" class="input" placeholder="Nom du matériel" required>
+                            <div class="error invisible">Ce champs doit contenir entre 2 et 20 caractères</div>
+                        </div>
+                        <div class="form-item">
+                            <label for="category">Catégorie du matériel</label>
+                            <select id="category" class="input" placeholder="Catégorie du matériel" required>
+                                <option value="">--Choisir une catégorie--</option>
+                                <option value="Réseau">Réseau</option>
+                                <option value="Téléphonique">Téléphonique</option>
+                                <option value="Desktop">Desktop</option>
+                                <option value="Réunion">Réunion</option>
+                            </select>
+                        </div>
+                        <div class="form-item">
+                            <label for="caracteristic">Caractéristique</label>
+                            <textarea id="caracteristic" class="input" placeholder="Caractéristique"
+                                required></textarea>
+                            <div class="error invisible">Ce champs doit contenir entre 10 et 100 caractères</div>
+                        </div>
+                        <div class="form-item">
+                            <label for="inputBooking">Matériel réservable ?</label>
+                            <select id="inputBooking" class="input" placeholder="Matériel réservable ?" required>
+                                <option value="">--Choisir une option--</option>
+                                <option value="true">Réservable</option>
+                                <option value="false">Non réservable</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btnForm" id="addButton">Ajouter le matériel</button>
+                    </form>
+                    <!-- Fin formulaire -->
+                </div>
+                <!-- Fin body modal -->
+            </div>
+            <!-- Fin du contenu du modal -->
+        </div>
+
+
+        <!-------- Modal validation de suppression --------->
+        <div class="modaldelete" id="deleteModal">
+            <div class="modal-content-delete">
+
+                <!-- Header du modal -->
+                <div class="modal-header-delete">
+                    <span class="closeDelete">&times;</span>
+                    <h2 class="modal-title">Supprimer l'équipement</h4>
+                </div>
+
+                <!-- Body du modal -->
+                <div class="modal-body">
+                    <p>Souhaitez-vous supprimer l'équipement du catalogue ? </p>
+                </div>
+
+                <!-- Footer du modal  -->
+                <div class="modal-footer-delete">
+                    <button type="submit" id="acceptDelete">Oui</button>
+                    <button type="button" id="annulerDelete">Non</button>
+                </div>
+
+            </div>
+        </div>
+
+
+
+        <!-------- Container des articles --------->
+        <div id="productsContainer"></div>
+
+    </main>
+    <!-------- Fin main --------->
+
+    <!-------- Début footer --------->
+    <footer>
+
+        <div id="sectionFooter">
+
+            <!----- Début section du premier footer ----->
+            <section id="firstFooter">
+
+                <!-- Logo -->
+                <div id="containerLogoFooter">
+                    <img src="images/logoWhite.svg"
+                        alt="Logo en blanc de l'entreprise Techno'Info avec un globe entouré de rond, dans le globe les lettres TI">
+                </div>
+
+                <!-- Menu navigation -->
+                <div id="containerFirstNav">
+                    <h2>Navigation</h2>
+                    <nav class="footer">
+                        <ul>
+                            <li><a href="accueil.html">Accueil</a></li>
+                            <li><a href="categorynetwork.html">Matériel réseau</a></li>
+                            <li><a href="categorytelephony.html">Matériel téléphonique</a></li>
+                            <li><a href="categorydesktop.html">Matériel desktop</a></li>
+                            <li><a href="categorymeeting.html">Matériel de réunion</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <!-- Menu compte -->
+                <div id="containerSecondNav">
+                    <h2>Mon compte</h2>
+                    <nav class="footer">
+                        <ul>
+                            <li><a href="#">Mes réservations</a></li>
+                            <li><a href="#">Mes informations personnelles</a></li>
+                            <li><a href="#">Modifier mon mot de passe</a></li>
+                            <li><a href="#">Déconnexion</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+            </section>
+            <!----- Fin section du premier footer ----->
+        </div>
+
+        <!----- Début section du second footer ----->
+        <section id="secondFooter">
+            <p>Copyright 2022 All Rights Reserved. By Alycia BEDEL</p>
+        </section>
+        <!----- Fin section du second footer ----->
+
+    </footer>
+    <!-------- Fin footer --------->
+
+    <!------ Lien JavaScript/JQuery ------->
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
